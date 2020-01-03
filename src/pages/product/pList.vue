@@ -27,7 +27,7 @@
                 <el-input v-model="name"></el-input>
             </el-form-item>
              <el-form-item label="价格">
-                <el-input type="password" v-model="form.password"></el-input>
+                <el-input v-model="form.price"></el-input>
             </el-form-item>
               <el-form-item label="所属栏目">
                     <el-select v-model="form.status" placeholder="请选择">
@@ -38,7 +38,7 @@
                     </el-select>
                 </el-form-item>
              <el-form-item label="介绍">
-                <el-input v-model="form.telephone"></el-input>
+                <el-input v-model="form.description"></el-input>
             </el-form-item>
              <el-form-item label="产品主图">
             </el-form-item>
@@ -79,13 +79,14 @@ toDeleteHandler(id){
         
         })
                 },
-            toUpdateHandler(){
+           toUpdateHandler(row){
+                 this.form = row;
                 this.visible =true
                 },
             closeModalHandler(){
                 this.visible =false
                 },
-              toAddHandler(){
+            toAddHandler(){
             let url = "http://localhost:6677/category/findAll"
             request.get(url).then((response)=>{
                 this.options = response.data;

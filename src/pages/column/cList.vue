@@ -65,7 +65,8 @@
         
         })
                 },
-            toUpdateHandler(){
+             toUpdateHandler(row){
+                 this.form = row;
                 this.visible =true
                 },
             closeModalHandler(){
